@@ -34,7 +34,7 @@ python estate.py
 
 ## 591房屋交易租屋網資訊API(c591.py、flask_c591.py)
 ### 說明
-利用爬網技術取得【591房屋交易租網】中，位於【臺北及新北】的所有【租屋物件資料】，並存取至MongoDB資料庫，以flask及Google Cloud Platform建立RESTful API供外部查詢。
+利用爬網技術取得【591房屋交易租網】中，位於【臺北及新北】的所有【租屋物件資料】，並存取至MongoDB資料庫，以flask及Google Cloud Platform建立RESTful API供外部查詢。\n
 其欄位包含【縣市】、【出租者】、【出租者身份】、【聯絡電話】、【型態】、【現況】、【性別要求】、【網址】
 
 ### 使用方式
