@@ -56,7 +56,14 @@ df_h = pd.read_csv('h_lvr_land_a.csv',encoding='utf-8',header=0, skiprows=range(
 
 col_eql(df_a,df_b,df_e,df_f,df_h)  #檢查表單欄位是否相等
 
+df_a['縣市']='臺北市'
+df_b['縣市']='臺中市'
+df_e['縣市']='高雄市'
+df_f['縣市']='新北市'
+df_h['縣市']='桃園市'
+
 df_all = pd.concat([df_a,df_b,df_e,df_f,df_h], axis=0, ignore_index=True)  #合併資料為df_all
+df_all.to_csv('df_all.csv', header=True, index=False, encoding='utf_8_sig')
 print('合併前一共{}行資料'.format(len(df_a)+len(df_b)+len(df_e)+len(df_f)+len(df_h)))  #總資料行數
 print('合併後一共{}行資料'.format(len(df_all))) #檢查合併前後數量是否一致
 
