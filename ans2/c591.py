@@ -31,12 +31,15 @@ class housep():
             except:
                 pass
     def dele_repeat(self):
+        del_num = 0
         myclient = pymongo.MongoClient('mongodb://localhost:27017/')
         mydb = myclient['house']
         collection = mydb['data']
         myquery = {}
         results = collection.find(myquery,{ "_id": 0 })
         for result in results:
+            del_num += 1
+            print('刪除進度：',del_num,'/',collection.count_documents({}))
             if collection.count_documents({'網址':result['網址']})>1:
                 self.del_rep = collection.delete_one({'網址':result['網址']})
     def srh(self,dic={}):
@@ -98,6 +101,7 @@ class housep():
             return 0
     def dele(self,data_url_list):
         del_num = 0
+        num = 0
         myclient = pymongo.MongoClient('mongodb://localhost:27017/')
         mydb = myclient['house']
         collection = mydb['data']
@@ -111,6 +115,8 @@ class housep():
                 myquery = {'網址': result['網址']}
                 collection.delete_many(myquery)
                 del_num += 1
+            num += 1
+            print('刪除進度：',num)
         print(del_num, "筆資料已刪除")   
     def inall(self): #爬取與更新租屋物件
         self.update_num = 0
@@ -134,7 +140,7 @@ class housep():
             for i in url_1:  
                 url_list.append(i.a['href'])
                 ainfo_list.append(i.text.split())
-                info_list.append(i.text.split()[-4:-2])
+                info_list.append(i.find_all('em')[1].text.strip().split())
             self.urls_list += url_list
             for j in range(len(info_list)):
                 if self.urlcheck(url_list[j]):  #url_list
