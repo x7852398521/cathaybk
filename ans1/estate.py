@@ -82,10 +82,10 @@ filter_a = df_all[(filter1 & filter2 & filter3)]
 filter_a.to_csv('filter_a.csv', header=True, index=False, encoding='utf_8_sig')
 
 ###資料計算，輸出filter_b.csv
-all_count = filter_a.count().max()
-car_count = filter_a['交易筆棟數'].str.extract(pat='(車位)(\d+)', flags=0, expand=True)[1].astype('int').sum()
-avg_price = round(filter_a[filter_a['總價元']>0]['總價元'].sum() / filter_a[filter_a['總價元']>0]['總價元'].count(),2)
-avg_carprice = round(filter_a[filter_a['車位總價元']>0]['車位總價元'].sum() / filter_a[filter_a['車位總價元']>0]
+all_count = df_all.count().max()
+car_count = df_all['交易筆棟數'].str.extract(pat='(車位)(\d+)', flags=0, expand=True)[1].astype('int').sum()
+avg_price = round(df_all[df_all['總價元']>0]['總價元'].sum() / df_all[df_all['總價元']>0]['總價元'].count(),2)
+avg_carprice = round(df_all[df_all['車位總價元']>0]['車位總價元'].sum() / df_all[df_all['車位總價元']>0]
                      ['交易筆棟數'].str.extract(pat='(車位)(\d+)', flags=0, expand=True)[1].astype('int').sum(),2)
 b_data = [{'總件數':all_count,'總車位數':car_count,'平均總價元':avg_price,'平均車位總價元':avg_carprice}]
 filter_b = pd.DataFrame(b_data)
