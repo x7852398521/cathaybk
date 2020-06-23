@@ -1,8 +1,8 @@
 # ReadME
 
 該文件包含以下資料：
-    * ans1-內政部不動產時價登錄網資料匯出程式(estate.py)
-    * ans2-591房屋交易租屋網資訊API(c591.py、flask_c591.py)
+* ans1-內政部不動產時價登錄網資料匯出程式(estate.py)
+* ans2-591房屋交易租屋網資訊API(c591.py、flask_c591.py)
 
 ## 內政部不動產時價登錄網資料匯出程式(estate.py)
 ### 說明
